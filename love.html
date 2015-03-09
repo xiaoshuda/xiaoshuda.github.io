@@ -1,0 +1,851 @@
+<!DOCTYPE HTML>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="keywords" content="jquery, css3, images, wall, thumbnails, slide, animate"/>
+  <meta name="author" content="wsy" />
+  <title>The gift for my love</title>
+  <script src="js/walkway.js"></script>
+  <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="css/style.css" />
+  <link href='http://fonts.googleapis.com/css?family=PT+Sans+Narrow' rel='stylesheet' type='text/css' />
+  <link href='http://fonts.googleapis.com/css?family=Wire+One' rel='stylesheet' type='text/css' />
+  <link href="css/animate.css" rel="stylesheet">
+  <style>
+    body, html {
+      position: relative;
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      background-color:#C1CDC1;
+      -webkit-animation-name:back;/*动画属性名，也就是我们前面keyframes定义的动画名*/
+      -webkit-animation-duration: 25s;/*动画持续时间*/
+      -webkit-animation-timing-function: ease-in-out; /*动画频率，和transition-timing-function是一样的*/
+      -webkit-animation-delay: 20s;/*动画延迟时间*/
+      -webkit-animation-iteration-count: 1;/*定义循环资料，infinite为无限次*/
+      -webkit-animation-direction: alternate;/*定义动画方式*/
+    }
+    @-webkit-keyframes back{
+      0% {
+        transform:translate(-20px,0px);
+
+
+      }
+      40% {
+        transform:translate(-50px,0px);
+
+      }
+      60% {
+        transform:translate(-100px,0px);
+
+      }
+      90%{
+
+        transform:translate(-150px,0px);
+        background-color: #C1CDC1;
+      }
+      100% {
+        transform:translate(-250px,0px);
+        background-color:#FFD700;
+
+      }
+    }
+    #svgMeet {
+      position: absolute;
+      width: 100%;
+      height:100% ;
+      -moz-transform:scale(0.5,0.5);
+      -webkit-transform:scale(0.5,0.5);
+      -o-transform:scale(0.5,0.5);
+      z-index: 5;
+      visibility: hidden;
+    }
+    audio{
+      position: absolute;
+      left: 500px;
+      background-color: red;
+      width:48px;
+      -moz-border-radius: 20px;
+      -webkit-border-radius: 30px;
+      border-radius:20px;
+      z-index: 1000;
+    }
+    .smallgirl {
+      opacity:0;
+      -webkit-animation-name:wobble;/*动画属性名，也就是我们前面keyframes定义的动画名*/
+      -webkit-animation-duration: 10s;/*动画持续时间*/
+      -webkit-animation-timing-function: ease-in-out; /*动画频率，和transition-timing-function是一样的*/
+      -webkit-animation-delay: 20s;/*动画延迟时间*/
+      -webkit-animation-iteration-count: 1;/*定义循环资料，infinite为无限次*/
+      -webkit-animation-direction: alternate;/*定义动画方式*/
+    }
+
+    @-webkit-keyframes wobble{
+      0% {
+        transform:translate(50px,250px);
+        opacity:1;
+
+      }
+      40% {
+        transform:translate(250px,250px);
+
+      }
+      60% {
+        transform:translate(450px,250px);
+
+      }
+      100% {
+        transform:translate(550px,250px);
+
+      }
+    }
+
+    .biggirl {
+      opacity:0;
+      -webkit-animation-name:wobble1;/*动画属性名，也就是我们前面keyframes定义的动画名*/
+      -webkit-animation-duration: 15s;/*动画持续时间*/
+      -webkit-animation-timing-function: ease-in-out; /*动画频率，和transition-timing-function是一样的*/
+      -webkit-animation-delay: 30s;/*动画延迟时间*/
+      -webkit-animation-iteration-count: 1;/*定义循环资料，infinite为无限次*/
+      -webkit-animation-direction: alternate;/*定义动画方式*/
+    }
+
+    @-webkit-keyframes wobble1{
+      0% {
+        transform:translate(650px,250px);
+        opacity:0.5;
+      }
+      40% {
+        transform:translate(900px,250px);
+        opacity:1;
+      }
+      60% {
+        transform:translate(900px,250px);
+        opacity:1;
+
+      }
+
+      90% {
+        transform:translate(900px,250px);
+        opacity:1;
+      }
+      100%{
+        transform:translate(900px,250px);
+        opacity:1;
+      }
+    }
+    .boy {
+      opacity:0;
+      -webkit-animation-name:wobble2;/*动画属性名，也就是我们前面keyframes定义的动画名*/
+      -webkit-animation-duration: 12s;/*动画持续时间*/
+      -webkit-animation-timing-function: ease-in-out; /*动画频率，和transition-timing-function是一样的*/
+      -webkit-animation-delay: 33s;/*动画延迟时间*/
+      -webkit-animation-iteration-count: 1;/*定义循环资料，infinite为无限次*/
+      -webkit-animation-direction: alternate;/*定义动画方式*/
+    }
+
+    @-webkit-keyframes wobble2{
+      0% {
+        opacity:0.2;
+
+      }
+      40% {
+        opacity:0.5;
+
+      }
+      60% {
+        opacity:0.75;
+
+      }
+      100% {
+        opacity:1;
+
+      }
+    }
+    .grass{
+      opacity:0;
+      -webkit-animation-name:wobble3;/*动画属性名，也就是我们前面keyframes定义的动画名*/
+      -webkit-animation-duration: 3s;/*动画持续时间*/
+      -webkit-animation-timing-function: ease-in-out; /*动画频率，和transition-timing-function是一样的*/
+      -webkit-animation-delay: 21s;/*动画延迟时间*/
+      -webkit-animation-iteration-count: 1;/*定义循环资料，infinite为无限次*/
+      -webkit-animation-direction: alternate;/*定义动画方式*/
+    }
+
+    @-webkit-keyframes wobble3{
+      0% {
+        opacity:0.5;
+      }
+      60% {
+        opacity:0.75;
+      }
+      100% {
+        opacity:1;
+      }
+    }
+    .tree{
+      opacity:0;
+      -webkit-animation-name:wobble4;/*动画属性名，也就是我们前面keyframes定义的动画名*/
+      -webkit-animation-duration: 8s;/*动画持续时间*/
+      -webkit-animation-timing-function: ease-in-out; /*动画频率，和transition-timing-function是一样的*/
+      -webkit-animation-delay: 24s;/*动画延迟时间*/
+      -webkit-animation-iteration-count: 1;/*定义循环资料，infinite为无限次*/
+      -webkit-animation-direction: alternate;/*定义动画方式*/
+    }
+
+    @-webkit-keyframes wobble4{
+      0% {
+        opacity:0.5;
+      }
+      60% {
+        opacity:0.75;
+      }
+      100% {
+        opacity:1;
+      }
+    }
+    .building{
+      opacity:0;
+      -webkit-animation-name:wobble5;/*动画属性名，也就是我们前面keyframes定义的动画名*/
+      -webkit-animation-duration: 12s;/*动画持续时间*/
+      -webkit-animation-timing-function: ease-in-out; /*动画频率，和transition-timing-function是一样的*/
+      -webkit-animation-delay: 33s;/*动画延迟时间*/
+      -webkit-animation-iteration-count: 1;/*定义循环资料，infinite为无限次*/
+      -webkit-animation-direction: alternate;/*定义动画方式*/
+    }
+
+    @-webkit-keyframes wobble5{
+      0% {
+        opacity:0.5;
+      }
+      60% {
+        opacity:0.75;
+      }
+      100% {
+        opacity:1;
+      }
+    }
+    .sun{
+      opacity:0;
+      -webkit-animation-name:wobble6;/*动画属性名，也就是我们前面keyframes定义的动画名*/
+      -webkit-animation-duration: 2s;/*动画持续时间*/
+      -webkit-animation-timing-function: ease-in-out; /*动画频率，和transition-timing-function是一样的*/
+      -webkit-animation-delay: 43s;/*动画延迟时间*/
+      -webkit-animation-iteration-count: 1;/*定义循环资料，infinite为无限次*/
+      -webkit-animation-direction: alternate;/*定义动画方式*/
+    }
+    @-webkit-keyframes wobble6{
+      0% {
+        opacity:0.5;
+
+
+      }
+      60% {
+        opacity:1;
+      }
+      100% {
+        opacity:0;
+
+      }
+    }
+    .content-container{
+      opacity:0;
+      -webkit-animation-name:wobble7;/*动画属性名，也就是我们前面keyframes定义的动画名*/
+      -webkit-animation-duration: 20000000000000s;/*动画持续时间*/
+      -webkit-animation-timing-function: ease-in-out; /*动画频率，和transition-timing-function是一样的*/
+      -webkit-animation-delay: 45s;/*动画延迟时间*/
+      -webkit-animation-iteration-count: 1;/*定义循环资料，infinite为无限次*/
+      -webkit-animation-direction: alternate;/*定义动画方式*/
+    }
+    @-webkit-keyframes wobble7{
+      0% {
+        opacity:1;
+
+      }
+      60% {
+        opacity:1;
+      }
+      99% {
+        opacity:1;
+
+      }
+      100%{
+        opacity:1;
+      }
+    }
+  </style>
+</head>
+<body>
+  	<div class="container fade in">
+      <div class="grid grid-pad">
+        <section class="col-1-1">
+            <div class="playground grid">
+              <div class="col-1-1 viewport">
+                  <div class="tlt" style="font-size: 60px; color:deepskyblue;font-weight: 600;margin:200px auto;text-align: center">
+                    <ul class="texts" style="display: none">
+                      <li >A love story of the normal girl</li>
+                      <li>what she want is to make him happy</li>
+                    </ul>
+                  </div>
+              </div>
+              <form class="grid grid-pad">
+                <span data-key="effect" data-type="in"></span>
+                <span data-key="type" data-type="in"></span>
+                <span data-key="effect" data-type="out"></span>
+                <span data-key="type" data-type="out"></span>
+              </form>
+            </div>
+        </section>
+      </div>
+  	</div>
+<script src="js/jquery.fittext.js"></script>
+<script src="js/jquery.lettering.js"></script>
+<script src="js/highlight.min.js"></script>
+<script src="js/jquery.textillate.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<script>
+  $(function (){
+    var log = function (msg) {
+      return function () {
+        if (console) console.log(msg);
+      }
+    }
+    $('code').each(function () {
+      var $this = $(this);
+      $this.text($this.html());
+    })
+
+    var $form = $('.playground form')
+      , $viewport = $('.playground .viewport');
+
+    var getFormData = function () {
+      var data = { 
+        loop:true,
+        in: { callback: log('in callback called.') }, 
+        out: { callback: log('out callback called.') }
+      };
+
+       $form.find('[data-key="type"]').each(function () {
+        var $this = $(this)
+          , key = $this.data('key')
+          , type = $this.data('type')
+          , val = $this.val();
+
+          data[type].shuffle = (val === 'shuffle');
+          data[type].reverse = (val === 'reverse');
+          data[type].sync = (val === 'sync');
+      });
+
+      return data;
+    };
+    $form.find('[data-key="effect"][data-type="in"]').val('flip');
+    $form.find('[data-key="effect"][data-type="out"]').val('hinge');
+    $form.find('[data-key="type"][data-type="in"]').val('shuffle');
+    $form.find('[data-key="type"][data-type="out"]').val('reverse');
+
+    setTimeout(function () {
+        $('.fade').addClass('in');
+    }, 250);
+
+    setTimeout(function () {
+      $('h1.glow').removeClass('in');
+    }, 2000);
+
+    var $tlt = $viewport.find('.tlt')
+      .on('start.tlt', log('start.tlt triggered.'))
+      .on('inAnimationBegin.tlt', log('inAnimationBegin.tlt triggered.'))
+      .on('inAnimationEnd.tlt', log('inAnimationEnd.tlt triggered.'))
+      .on('outAnimationBegin.tlt', log('outAnimationBegin.tlt triggered.'))
+      .on('outAnimationEnd.tlt', log('outAnimationEnd.tlt triggered.'))
+      .on('end.tlt', log('end.tlt'));
+    
+    $form.on('change', function () {
+      var obj = getFormData();
+      $tlt.textillate(obj);
+    }).trigger('change');
+
+  });
+  setTimeout("$('.container').css('display','none');" ,18000);
+  setTimeout("$('#svgMeet').css('visibility','visible');" ,19000);
+  setTimeout("$('#svgMeet').css('display','none');" ,45000);
+  setTimeout("$('.content-container').css('visibility','visible');" ,19000);
+</script>
+    <audio controls="controls" autoplay="autoplay">
+      <source src="css/love.mp3" type="audio/ogg" />
+      Your browser does not support the audio element.
+    </audio>
+    <svg id="svgMeet" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
+      <!-- Created with SVG-edit - http://svg-edit.googlecode.com/ -->
+      <g id="house" class="house" style="transform:translate(100px,200px);">
+        <title>house</title>
+        <path stroke-width="6" stroke="#000000" fill="#DDDDDD" d="M86.6,0 L0,50 L173.2,50z" />
+        <rect x="0" y="50" width="179.2" height="100" style="fill:#DDDDDD;stroke-width:6;stroke:#000"/>
+        <rect x="100" y="100" width="50" height="50" style="fill:red;stroke-width:3;stroke:#000"/>
+        <rect x="30" y="90" width="30" height="30" style="fill:yellow;stroke-width:2;stroke:#000"/>
+        <path stroke-width="2" stroke="#000" fill="red" d="M30,105 L60,105" />
+        <path stroke-width="2" stroke="#000" fill="red" d="M45,90 L45,120" />
+      </g>
+      <!-- Created with SVG-edit - http://svg-edit.googlecode.com/ -->
+      <g class="smallgirl" style="transform:translate(-30px,250px);">
+        <title>smallgirl</title>
+        <path d="m214,89c-1,0 -2,0 -3,0c-1,0 -2,0 -3,0c-1,0 -2,0 -3,0c-1,0 -2,0 -3,0c-1,0 -3,1 -4,1c-2,0 -3,0 -4,1c-1,1 -2.29289,2.29289 -3,3c-0.70711,0.70711 -2.29289,0.29289 -3,1c-0.70711,0.70711 -1,2 -1,3c0,1 0,2 0,3c0,1 -1,1 -1,2c0,1 0,2 0,3c0,1 0,2 0,3c0,1 0.29289,1.29289 1,2c0.70711,0.70711 1.29289,0.29289 2,1c0.70711,0.70711 1.07613,1.61732 2,2c1.30656,0.5412 1.29289,1.29289 2,2c1.41422,1.41422 3,0 4,0c1,0 3.07613,0.61732 4,1c1.30656,0.5412 2,1 3,1c2,0 3,0 4,0c2,0 3,0 4,0c2,0 3,0 4,0c1,0 2,0 4,0c1,0 3,0 4,0c1,0 0.61731,-1.07612 1,-2c0.5412,-1.30656 2,-1 2,-2c0,-1 0,-2 0,-3c0,-1 0,-2 0,-3c0,-1 0,-2 0,-3c0,-1 0,-2 0,-3c0,-1 -0.29289,-2.29289 -1,-3c-0.70711,-0.70711 -1,-1 -1,-2c0,-1 -0.29289,-1.29289 -1,-2c-0.70711,-0.70711 -1,-1 -2,-1c-1,0 -1,-1 -2,-1c-1,0 -0.29289,-1.29289 -1,-2c-0.70711,-0.70711 -2,0 -3,0c-1,0 -2,0 -3,0l-1,0l-1,0l-1,0" id="svg_1" stroke-width="5" stroke="#000000" fill="none"/>
+        <path d="m198,118c0,0 0,1 0,1c0,2 -0.29289,4.29289 -1,5c-0.70711,0.70711 -1.4588,0.69344 -2,2c-0.38269,0.92388 0.70711,2.29289 0,3c-0.70711,0.70711 -1,1 -1,2c0,1 -1.29289,1.29289 -2,2c-0.70711,0.70711 -1,2 -1,3c0,1 -1.29289,0.29289 -2,1c-0.70711,0.70711 0.70711,2.29289 0,3c-0.70711,0.70711 -0.29289,1.29289 -1,2c-0.70711,0.70711 -1,1 -1,2c0,1 -0.07613,1.61731 -1,2c-1.30656,0.5412 -2,1 -2,2c0,1 -1.07613,0.61731 -2,1c-1.30656,0.5412 -2.07613,1.61731 -3,2c-1.30656,0.5412 -1,2 -2,2c-2,0 -3.29289,0.29289 -4,1c-0.70711,0.70711 -1.4588,0.69344 -2,2c-0.38269,0.92387 -1,1 -2,1c-1,0 -1,1 -2,1c-1,0 -1.29289,1.29289 -2,2c-0.70711,0.70711 -2.29289,-0.70711 -3,0c-0.70711,0.70711 -0.29289,1.29289 -1,2c-0.70711,0.70711 -2,0 -2,1c0,1 1,1 2,1c1,0 2,0 4,0c2,0 5,0 6,0c2,0 5,0 8,0c2,0 3,0 5,0c2,0 3,0 4,0c3,0 4,0 5,0c1,0 3.07613,0.38269 4,0c1.30656,-0.5412 3,-1 4,-1c1,0 2,0 3,0c1,0 2,0 3,0c1,0 2,0 3,0c1,0 2,0 3,0c1,0 2,0 3,0c1,0 2,0 3,0c1,0 2,0 3,0c1,0 2,0 3,0c1,0 2,0 3,0c1,0 2,0 3,0c1,0 2,-1 3,-1c1,0 1,-1 2,-1c1,0 2.07613,0.38269 3,0c1.30656,-0.5412 2.29289,-0.29289 3,-1c0.70711,-0.70711 0,-2 0,-3c0,-1 -1,-1 -1,-2c0,-1 -0.61731,-1.07613 -1,-2c-0.5412,-1.30656 -1,-2 -2,-3c-1,-1 -1.29289,-2.29289 -2,-3c-0.70711,-0.70711 -0.69344,-1.4588 -2,-2c-0.92387,-0.38269 -0.69344,-1.4588 -2,-2c-0.92387,-0.38269 -1.61731,-1.07613 -2,-2c-0.5412,-1.30656 -1.69344,-1.4588 -3,-2c-0.92387,-0.38269 -0.29289,-1.29289 -1,-2c-0.70711,-0.70711 -1.07613,-0.61731 -2,-1c-1.30656,-0.5412 -1.29289,-2.29289 -2,-3c-0.70711,-0.70711 -1.29289,-0.29289 -2,-1c-0.70711,-0.70711 -1.29289,-0.29289 -2,-1c-0.70711,-0.70711 -0.29289,-1.29289 -1,-2c-0.70711,-0.70711 -1,-1 -1,-2c0,-1 -1,-1 -1,-2c0,-1 -1,-1 -1,-2l0,-1" id="svg_2" stroke-width="5" stroke="#000000" fill="#ffaaaa"/>
+        <path d="m190,163c0,0 0,1 0,1c0,1 0,2 0,3l0,1l0,1" id="svg_9" stroke-linecap="null" stroke-linejoin="null" stroke-dasharray="null" stroke-width="5" stroke="#000000" fill="none"/>
+        <path d="m193,167c0,1 0.29289,1.29289 1,2c0.70711,0.70711 1,1 2,1c1,0 2,0 2,1l1,0l1,0l1,0" id="svg_10" stroke-linecap="null" stroke-linejoin="null" stroke-dasharray="null" stroke-width="5" stroke="#000000" fill="none"/>
+        <path d="m226,163c1,1 2,2 2,3c0,1 0.61731,1.07613 1,2c0.5412,1.30656 1.29289,1.29289 2,2c0.70711,0.70711 1,1 1,2l0,1l1,0l0,1" id="svg_11" stroke-linecap="null" stroke-linejoin="null" stroke-dasharray="null" stroke-width="5" stroke="#000000" fill="none"/>
+        <path d="m219,100c0,0 0,0 1,0l1,0" id="svg_12" stroke-linecap="null" stroke-linejoin="null" stroke-dasharray="null" stroke-width="5" stroke="#000000" fill="none"/>
+        <path d="m219,99c-1,0 -1.70711,1.29289 -1,2c0.70711,0.70711 1.69344,1.4588 3,2c0.92387,0.38268 1,1 2,1l1,0" id="svg_13" stroke-linecap="null" stroke-linejoin="null" stroke-dasharray="null" stroke-width="5" stroke="#000000" fill="none"/>
+      </g>
+      <!-- Created with SVG-edit - http://svg-edit.googlecode.com/ -->
+      <g class="grass" style="transform:translate(250px,150px);">
+        <title>grass</title>
+        <path d="m156,237c1,0 1.58578,-0.41422 3,1c0.70711,0.70711 1.82443,0.09789 3,2c1.05147,1.70131 0.69344,2.4588 2,3c0.92387,0.38269 1.4588,0.69344 2,2c0.76537,1.84776 0.29289,2.29289 1,3c0.70711,0.70711 1.29289,0.29289 2,1c0.70711,0.70711 -0.30745,2.186 1,4c0.8269,1.14726 1,2 1,4c0,1 0.4588,1.69345 1,3c0.38269,0.92389 0,2 0,3c0,1 0,2 0,3c0,1 1,1 1,2c0,2 0,4 0,5c0,1 0,2 0,3c0,2 0,3 0,4c0,1 1,2 1,3c0,1 0,2 0,3c0,1 0,2 0,4c0,1 0,2 0,3c0,1 0,2 0,3c0,1 0,2 0,3c0,1 -1,3 0,3c1,0 1,-3 1,-4c0,-1 -0.38269,-2.07611 0,-3c0.5412,-1.30655 1,-2 1,-3c0,-1 0,-2 0,-4c0,-1 0,-2 0,-3c0,-1 1,-3 1,-4c0,-1 0,-2 0,-3c0,-1 -0.38269,-2.07611 0,-3c0.5412,-1.30655 1,-2 1,-3c0,-1 -0.22975,-2.02676 0,-3c0.51375,-2.17624 1,-3 1,-4c0,-1 -0.38269,-2.07611 0,-3c0.5412,-1.30655 1.29289,-1.29291 2,-2c0.70711,-0.70709 1,-1 1,-2c0,-1 0.69344,-2.4588 2,-3c0.92387,-0.38269 1.4588,-0.69344 2,-2c0.38269,-0.92387 1,-1 2,-2c1,-1 1.69344,-2.4588 3,-3c0.92387,-0.38269 2.07613,-1.61731 3,-2c1.30656,-0.5412 1.69344,-2.4588 3,-3c1.84776,-0.76537 2.02675,-0.77025 3,-1c2.17625,-0.51375 3,-1 4,-1c1,0 2,0 2,-1l1,0l1,0l1,0" id="svg_19" stroke-linecap="null" stroke-linejoin="null" stroke-dasharray="null" stroke-width="5" stroke="#00bf00" fill="none"/>
+        <path d="m177,276c-1,0 -2,0 -3,-1c-1,-1 -2.07613,-0.61731 -3,-1c-2.61313,-1.0824 -3.85274,-2.1731 -5,-3c-1.814,-1.30746 -4.69344,-1.4588 -6,-2c-1.84776,-0.76538 -3,-1 -4,-1c-1,0 -1.15224,-0.23462 -3,-1c-1.30656,-0.5412 -1,-2 -2,-2c-1,0 -1.29289,-0.29291 -2,-1c-0.70711,-0.70709 -2.4588,0.30655 -3,-1c-0.38269,-0.92389 -1,-1 -2,-1c-1,0 -2,0 -3,0c-1,0 -2.07613,-0.38269 -3,0c-1.30656,0.5412 -2,1 -3,1l-1,0" id="svg_20" stroke-linecap="null" stroke-linejoin="null" stroke-dasharray="null" stroke-width="5" stroke="#00bf00" fill="none"/>
+        <path d="m226,239c2,1 2.1731,1.85274 3,3c1.30745,1.814 1.23463,4.15224 2,6c0.5412,1.30656 2.4588,2.69344 3,4c0.76537,1.84776 1,3 1,4c0,2 1,4 1,5c0,1 0,3 0,5c0,2 0,3 0,4c0,2 1,3 1,4c0,1 0,3 0,4c0,1 0,3 0,4c0,1 0,2 0,3c0,2 0,3 0,5c0,1 0,2 0,4c0,1 0,2 0,4c0,2 0,3 0,4c0,1 1,2 1,4c0,1 -1,3 0,3c1,0 0,-2 0,-3c0,-1 -0.48625,-2.82376 -1,-5c-0.22975,-0.97324 0,-2 0,-4c0,-1 -1,-2 -1,-4c0,-1 0,-2 0,-4c0,-1 0,-2 0,-3c0,-2 0,-3 0,-4c0,-1 0,-2 0,-3c0,-1 0,-2 0,-3c0,-1 0.4588,-1.69345 1,-3c0.38269,-0.92389 0,-2 0,-3c0,-1 0,-2 0,-3c0,-1 0.83981,-1.01291 1,-2c0.50655,-3.12143 1.29289,-5.29291 2,-6c0.70711,-0.70709 1.29289,-0.29291 2,-1c0.70711,-0.70709 0.69344,-1.4588 2,-2c0.92387,-0.38269 2,-1 3,-1c1,0 1.69344,-0.4588 3,-1c1.84776,-0.76537 3.69344,-0.4588 5,-1c0.92387,-0.38269 3,0 5,0c1,0 2,0 3,0l1,0l1,0" id="svg_21" stroke-linecap="null" stroke-linejoin="null" stroke-dasharray="null" stroke-width="5" stroke="#00bf00" fill="none"/>
+        <path d="m236,284c0,-1 -0.4588,-1.69345 -1,-3c-0.38269,-0.92389 -1,-2 -2,-3c-1,-1 -1,-2 -6,-7c-1,-1 -1.29289,-2.29291 -2,-3c-0.70711,-0.70709 -2,-1 -3,-2c-1,-1 -1.69344,-2.4588 -3,-3c-0.92387,-0.38269 -0.29289,-1.29291 -1,-2c-0.70711,-0.70709 -1.29289,-0.29291 -2,-1c-0.70711,-0.70709 -1.29289,-0.29291 -2,-1c-0.70711,-0.70709 -2,0 -3,0l-1,0l-1,0l-1,-1" id="svg_22" stroke-linecap="null" stroke-linejoin="null" stroke-dasharray="null" stroke-width="5" stroke="#00bf00" fill="none"/>
+        <path d="m199,268c0,1 0,2 0,4c0,2 0,5 0,6c0,2 0,5 0,6c0,1 0,3 0,4c0,1 0,3 0,4c0,1 0,2 0,4c0,2 0,3 0,4c0,1 0,2 0,3c0,1 0,2 0,3c0,1 -1,3 0,3c1,0 0,-2 0,-5c0,-1 0,-3 0,-4c0,-2 0,-3 0,-5c0,-1 0.61731,-2.07611 1,-3c0.5412,-1.30655 1,-2 1,-3c0,-1 0.29289,-1.29291 1,-2c0.70711,-0.70709 0.85274,-1.1731 2,-2c1.814,-1.30746 2.29289,-1.29291 3,-2c0.70711,-0.70709 2,-1 3,-1c1,0 1,-1 2,-1c1,0 2,-1 3,-1c1,0 2,0 3,0l1,0" id="svg_23" stroke-linecap="null" stroke-linejoin="null" stroke-dasharray="null" stroke-width="5" stroke="#00bf00" fill="none"/>
+        <path d="m201,291c-1,-1 -0.29289,-2.29291 -1,-3c-0.70711,-0.70709 -1,-1 -1,-2c0,-1 -1,-1 -1,-2c0,-1 -1.4588,-1.69345 -2,-3c-0.38269,-0.92389 -0.69344,-2.4588 -2,-3c-0.92387,-0.38269 -1.61731,-1.07611 -2,-2c-0.5412,-1.30655 -2,-1 -2,-2l-1,0l0,-1l0,-1" id="svg_24" stroke-linecap="null" stroke-linejoin="null" stroke-dasharray="null" stroke-width="5" stroke="#00bf00" fill="none"/>
+      </g>
+      <!-- Created with SVG-edit - http://svg-edit.googlecode.com/ -->
+      <g class="tree" style="transform:translate(400px,250px);">
+        <title>tree</title>
+        <path d="m256,201c2,1 3.186,1.69255 5,3c1.14728,0.8269 2,2 4,4c1,1 2,2 3,3c1,1 1.69254,1.186 3,3c0.8269,1.14726 2,3 3,4c2,2 3.12967,6.88531 4,8c3.58844,4.59599 4,6 5,9c1,3 3.4588,4.69344 4,6c0.76538,1.84776 0.69254,3.186 2,5c0.8269,1.14726 1.48627,1.82375 2,4c0.4595,1.9465 1,5 1,6c0,1 0.48627,1.82376 1,4c0.91901,3.89301 0,5 0,11c0,3 0,4 0,6c0,6 0,9 0,10c0,3 0,7 0,9c0,2 0,3 0,6c0,1 0,2 0,3c0,3 1,4 1,5c0,1 0,2 0,3c0,1 0,2 0,3c0,1 -0.29291,1.29291 -1,2c-1.41422,1.41422 0,4 0,5c0,1 0,2 0,3c0,1 0,2 0,3c0,1 0,2 0,3c0,1 0,2 0,3c0,1 0,2 0,3c0,1 -0.29291,2.29291 -1,3c-0.70709,0.70709 -1.70709,1.29291 -1,2c0.70709,0.70709 1.69345,-1.4588 3,-2c0.92389,-0.38269 1.69345,-0.4588 3,-1c0.92389,-0.38269 2,0 3,0c1,0 1.69345,-1.4588 3,-2c0.92389,-0.38269 1.69345,-0.4588 3,-1c1.84775,-0.76538 3,0 4,0c1,0 3.15225,0.76538 5,0c1.30655,-0.5412 2,-1 3,-1c1,0 2,0 3,0c1,0 2,-1 3,-1c1,0 2,0 3,0c3,0 3.29291,-0.29291 4,-1c0.70709,-0.70709 2,0 3,0c1,0 2,0 3,0c1,0 2,0 3,0c1,0 2,0 3,0c1,0 4,0 5,0c1,0 2,0 3,0c2,0 3,0 4,0c1,0 2,0 3,0c1,0 2,0 3,0c1,0 2,0 3,0c1,0 1,1 2,1c1,0 2.29291,-0.70709 3,0c0.70709,0.70709 1,1 2,1c1,0 1,1 2,1c1,0 1.07611,1.38269 2,1c1.30655,-0.5412 1,-2 1,-3c0,-1 0,-3 0,-5c0,-1 0,-5 0,-6c0,-6 0,-7 0,-8c0,-3 0,-4 0,-5c0,-3 0,-5 0,-6c0,-5 0,-7 0,-10c0,-2 -0.48627,-2.82376 -1,-5c-0.22977,-0.97324 -0.49756,-2.92578 -1,-8c-0.09854,-0.99515 -0.49622,-2.90778 -1,-7c-0.24435,-1.98502 0.68927,-5.08026 0,-8c-0.51373,-2.17624 -1,-3 -1,-6c0,-2 -0.49347,-2.87857 -1,-6c-0.32037,-1.97418 0,-3 0,-5c0,-1 0,-3 0,-7c0,-1 0,-4 0,-6c0,-1 0,-3 0,-4c0,-1 0,-4 0,-5c0,-1 0,-2 1,-3c1,-1 0.43463,-3.15099 3,-5c0.81125,-0.58472 3.68378,-4.05132 4,-5c1.58115,-4.74342 3.69254,-4.186 5,-6c1.65381,-2.29454 3.07611,-2.61731 4,-3c5.22626,-2.16478 4,-5 5,-6c2,-2 2.724,-3.22273 6,-7c0.92661,-1.06837 2.4588,-1.69344 3,-3c0.38269,-0.92387 2.14935,-1.47427 3,-2c1.9021,-1.17557 1.69345,-2.4588 3,-3c0.92389,-0.38269 1.29291,-0.29289 2,-1c0.70709,-0.70711 2,0 3,0c1,0 2,0 3,0c1,0 2,0 3,0c1,0 2,0 3,0l1,0" id="svg_24" stroke-linecap="null" stroke-linejoin="null" stroke-dasharray="null" stroke-width="5" stroke="#7f003f" fill="#4c4c4c"/>
+        <path d="m255,208c-1,0 -2,0 -3,0c-4,0 -5,0 -7,0c-4,0 -6,0 -8,0c-6,0 -10.38617,2.60806 -19,0c-3.45085,-1.04483 -5.186,-2.69255 -7,-4c-1.14726,-0.8269 -3.15085,-0.87744 -8,-7c-1.38831,-1.75288 -3.09645,-2.33434 -7,-10c-1.43497,-2.81795 -4.47554,-7.59309 -6,-16c-0.35684,-1.96791 -0.49829,-3.93796 -1,-10c-0.16496,-1.99318 0,-5 0,-12c0,-4 6.76393,-16.76393 9,-19c4.47214,-4.47214 17.52026,-5.38143 26,-9c3.31622,-1.41514 12.69344,-4.4588 14,-5c0.92387,-0.38268 3,0 4,0c1,0 1.29289,0.29289 2,1c0.70711,0.70711 2,0 2,1c0,1 0.4588,0.30656 1,-1c0.38269,-0.92388 -0.21014,-2.07844 1,-5c0.85571,-2.06586 2.78732,-2.74748 5,-11c1.57527,-5.87524 3.48627,-13.82375 4,-16c0.22974,-0.97325 3.86325,-6.14681 6,-8c7.55453,-6.55202 8.96597,-8.49948 20,-9c3.99588,-0.18126 19.01364,-0.32993 23,0c6.06204,0.50171 20.31,4.33749 23,6c2.40601,1.48699 7.88153,4.19028 11,6c1.93399,1.12234 4.44806,1.42281 7,3c1.9021,1.17557 1.0979,3.82443 3,5c0.85065,0.52573 1.48627,0.82375 2,3c0.22977,0.97325 0,2 0,3c0,1 1,4 1,5c0,2 -1,5 0,5c1,0 0.4588,-1.69344 1,-3c0.38269,-0.92388 0.797,-1.2565 2,-2c2.69,-1.66251 6.05164,-1.35927 10,-2c6.24289,-1.01308 21,-2 29,-2c13,0 24,0 37,0c13,0 24.27722,-4.52078 61,0c4.09222,0.50378 6.50424,1.03551 11,4c2.3613,1.55702 4.513,1.59399 6,4c1.66251,2.68999 3,6 4,9c1,3 1,5 1,6c0,2 0,3 0,4c0,2 0,3 0,5c0,1 -0.4588,2.69344 -1,4c-0.38269,0.92389 -1.48627,1.82375 -2,4c-0.4595,1.9465 -2.14935,3.47427 -3,4c-1.9021,1.17557 -2,2 -3,3c-1,1 -1.58578,1.58578 -3,3c-0.70709,0.70711 -1.54916,0.95517 -5,2c-0.95709,0.28978 -2.58578,1.58578 -4,3c-1.41422,1.41422 -4.52814,2.11833 -5,3c-1.70129,3.17892 -4.82376,3.48625 -7,4c-1.9465,0.4595 -3.07611,3.61731 -4,4c-1.30655,0.5412 -3,1 -4,2c-1,1 -3.76935,1.30322 -5,2c-3.58792,2.03145 -5,2 -6,2c-2,0 -3.15225,0.23463 -5,1c-1.30655,0.5412 -3,1 -4,1c-1,0 -1,1 -3,1c-1,0 -1.29291,0.29289 -2,1c-1.41422,1.41422 -3,0 -4,0c-1,0 -3.29291,0.29289 -4,1c-0.70709,0.70711 -0.69345,1.4588 -2,2c-0.92389,0.38269 -1.15225,0.23463 -3,1c-1.30655,0.5412 -2,2 -3,2c-1,0 -1.07611,0.61731 -2,1c-1.30655,0.5412 -1,2 -2,2c-1,0 -1.29291,0.29289 -2,1c-0.70709,0.70711 -1.29291,1.29289 -2,2c-0.70709,0.70711 -1.4588,1.69344 -2,3c-0.38269,0.92387 -1.4588,0.69344 -2,2c-0.38269,0.92387 0,2 0,3l-1,0" id="svg_25" stroke-linecap="null" stroke-linejoin="null" stroke-dasharray="null" stroke-width="5" stroke="#00ffff" fill="#007f3f"/>
+        <path d="m270,133c0,0 -1,0 -2,0c0,0 -1.29291,-0.70711 -2,0c-0.70709,0.70711 -1.07611,0.61731 -2,1c-1.30655,0.5412 -1.61731,1.07613 -2,2c-0.5412,1.30656 -1.29291,1.29289 -2,2c-0.70709,0.70711 -1.4588,0.69344 -2,2c-0.38269,0.92387 -1.29291,1.29289 -2,2c-0.70711,0.70711 -1,2 -1,3c0,1 0,2 0,3c0,1 -0.38269,2.07613 0,3c0.5412,1.30656 2,1 2,2c0,1 0.29291,1.29289 1,2c0.70709,0.70711 2,1 3,1c1,0 0.29291,1.29289 1,2c0.70709,0.70711 1.29291,0.29289 2,1c0.70709,0.70711 2.07611,0.61731 3,1c1.30655,0.5412 2,1 3,1c1,0 2.15225,0.76537 4,0c1.30655,-0.5412 1.29291,-1.29289 2,-2c0.70709,-0.70711 0.29291,-1.29289 1,-2c0.70709,-0.70711 1,-1 1,-2c0,-1 0.4588,-1.69344 1,-3c0.38269,-0.92387 -0.70709,-2.29289 0,-3c0.70709,-0.70711 1,-1 1,-2c0,-1 0,-2 0,-3c0,-1 -0.4588,-1.69344 -1,-3c-0.38269,-0.92387 -0.29291,-1.29289 -1,-2c-0.70709,-0.70711 -1,-1 -2,-1c-1,0 -2,0 -2,-1l-1,0l-1,0" id="svg_26" stroke-linecap="null" stroke-linejoin="null" stroke-dasharray="null" stroke-width="5" stroke="#ffff00" fill="#ffff00"/>
+        <path d="m358,129c0,1 -0.77023,2.02675 -1,3c-0.51373,2.17625 -0.58578,2.58578 -2,4c-0.70709,0.70711 -1,1 -1,2c0,1 0,2 0,3c0,1 -0.70709,2.29289 0,3c0.70709,0.70711 0.29291,1.29289 1,2c0.70709,0.70711 1.29291,0.29289 2,1c0.70709,0.70711 1.4588,0.69344 2,2c0.38269,0.92387 1,2 2,2c1,0 2,0 3,0c1,0 2,1 3,1c1,0 2,0 3,0c1,0 2.29291,-0.29289 3,-1c0.70709,-0.70711 0.61731,-1.07613 1,-2c0.5412,-1.30656 1,-2 1,-3c0,-1 0,-2 0,-3c0,-1 -1.48627,-1.82375 -2,-4c-0.22977,-0.97325 -1.5405,-1.0535 -2,-3c-0.51373,-2.17625 -1.61731,-2.07613 -2,-3c-0.5412,-1.30656 -1.69345,-1.4588 -3,-2c-0.92389,-0.38269 -2,-1 -3,-1l-1,0l-1,0" id="svg_27" stroke-linecap="null" stroke-linejoin="null" stroke-dasharray="null" stroke-width="5" stroke="#ffff00" fill="#ffff00"/>
+        <path d="m459,112c0,1 -1,1 -1,2c0,1 -0.61731,2.07612 -1,3c-0.5412,1.30656 -1,2 -1,3c0,1 0,2 0,3c0,1 -0.70709,2.29289 0,3c0.70709,0.70711 0.69345,1.4588 2,2c0.92389,0.38269 2,0 3,0c1,0 2,0 3,0c1,0 1,-1 2,-1c1,0 1.29291,-0.29289 2,-1c0.70709,-0.70711 0.29291,-1.29289 1,-2c0.70709,-0.70711 1.29291,-0.29289 2,-1c0.70709,-0.70711 0,-2 0,-3c0,-1 -0.29291,-1.29289 -1,-2c-0.70709,-0.70711 0,-2 -1,-3c-1,-1 -1,-2 -2,-2c-1,0 -2,0 -3,0l-1,0l-1,0" id="svg_28" stroke-linecap="null" stroke-linejoin="null" stroke-dasharray="null" stroke-width="5" stroke="#ffff00" fill="#ffff00"/>
+        <path d="m320,162c0,0 0.38269,1.07613 0,2c-0.5412,1.30656 -1.23462,2.15224 -2,4c-0.5412,1.30656 -1,2 -1,3c0,1 0,2 0,2c0,1 0,2 1,2c1,0 2,1 3,1c1,0 1.69345,0.4588 3,1c0.92389,0.38269 2,0 3,0c1,0 2.07611,-0.38269 3,0c1.30655,0.5412 2,1 3,1c1,0 2.02676,0.22975 3,0c2.17624,-0.51375 2.29291,-1.29289 3,-2c1.41422,-1.41422 1.4588,-1.69344 2,-3c0.38269,-0.92387 0,-2 0,-3c0,-2 0.76538,-3.15224 0,-5c-0.5412,-1.30656 -1.69345,-2.4588 -3,-3c-0.92389,-0.38269 -2,0 -3,0c-2,0 -3,0 -5,0c-1,0 -1.69345,-0.4588 -3,-1c-0.92389,-0.38269 -2,0 -3,0l-1,0l0,1" id="svg_29" stroke-linecap="null" stroke-linejoin="null" stroke-dasharray="null" stroke-width="5" stroke="#ffff00" fill="#ffff00"/>
+      </g>
+      <!-- Created with SVG-edit - http://svg-edit.googlecode.com/ -->
+      <g class="biggirl" style="transform:translate(650px,250px);">
+        <title>biggirl</title>
+        <ellipse ry="30" rx="25" id="svg_29" cy="83" cx="174" stroke-linecap="null" stroke-linejoin="null" stroke-dasharray="null" stroke-width="5" stroke="#0000ff" fill="#ffaaaa"/>
+        <path d="m187,75c0,1 1,1 2,1c1,0 2,0 3,0c1,0 1,-1 1,-2c0,-1 0.38269,-2.07612 0,-3c-0.5412,-1.30656 -2,-2 -3,-2c-1,0 -1.29289,0.29289 -2,1c-0.70711,0.70711 -1,1 -1,2l-1,0l0,1" id="svg_30" stroke-linecap="null" stroke-linejoin="null" stroke-dasharray="null" stroke-width="5" stroke="#000000" fill="none"/>
+        <path d="m185,93c1,1 1,2 2,2c1,0 1,1 2,1l1,0l1,0" id="svg_31" stroke-linecap="null" stroke-linejoin="null" stroke-dasharray="null" stroke-width="5" stroke="#ff007f" fill="none"/>
+        <path d="m188,95c1,0 2,0 3,0l1,0l1,0l1,0" id="svg_32" stroke-linecap="null" stroke-linejoin="null" stroke-dasharray="null" stroke-width="5" stroke="#ff007f" fill="none"/>
+        <path d="m168,115c0,1 0,2 0,3c0,1 0,2 0,4c0,2 0,3 0,4c0,2 0.4595,3.0535 0,5c-0.51375,2.17625 -0.67964,5.02582 -1,7c-0.50655,3.12144 -0.61731,6.07613 -1,7c-0.5412,1.30656 -1.14429,2.93414 -2,5c-1.21014,2.92157 -0.23463,4.15224 -1,6c-0.5412,1.30656 -2,3 -2,5c0,3 -0.33749,4.31001 -2,7c-0.7435,1.203 -1.29289,2.29289 -2,3c-1.41422,1.41422 -1.4588,3.69344 -2,5c-0.38269,0.92387 -1.14935,1.47427 -2,2c-1.90211,1.17557 -1.23463,3.15224 -2,5c-0.5412,1.30656 -1,2 -2,3c-1,1 -1.4588,1.69344 -2,3c-0.38269,0.92387 -1.61731,1.07613 -2,2c-0.5412,1.30656 -1.29289,1.29289 -2,2c-0.70711,0.70711 -1.82443,0.09789 -3,2c-0.52573,0.85065 -0.29289,1.29289 -1,2c-0.70711,0.70711 -1.29289,1.29289 -2,2c-0.70711,0.70711 -1.29869,0.94853 -3,2c-1.90211,1.17557 -2.4588,1.69344 -3,3c-0.38269,0.92387 -1,2 -2,2c-1,0 -1.07612,0.61731 -2,1c-1.30656,0.5412 -2.69344,2.4588 -4,3c-0.92388,0.38269 -0.69344,1.4588 -2,2c-0.92388,0.38269 -2,0 -3,0c-1,0 -3.15099,-0.56537 -5,2c-0.58471,0.81125 -0.29289,1.29289 -1,2c-0.70711,0.70711 -1.29289,0.29289 -2,1c-0.70711,0.70711 -1.29289,0.29289 -2,1c-0.70711,0.70711 -1,1 -2,1c-1,0 -0.29289,1.29289 -1,2c-0.70711,0.70711 -1.29289,0.29289 -2,1c-0.70711,0.70711 -1.29289,0.29289 -2,1c-0.70711,0.70711 0.14935,1.47427 1,2c1.90211,1.17557 1.29289,3.29289 2,4c0.70711,0.70711 1.69344,1.4588 3,2c0.92388,0.38269 1.61732,0.07613 2,1c0.5412,1.30656 3,1 5,1c1,0 5,1 6,1c2,0 5,1 6,1c3,0 4.00504,-0.14178 6,0c7.05328,0.50127 7.75711,1.98692 14,3c0.98709,0.16019 2,0 4,0c1,0 2,0 3,0c3,0 6,0 7,0c1,0 4.02675,-0.22975 5,0c2.17625,0.51375 3,1 4,1c3,0 5,0 6,0c2,0 6,0 7,0c3,0 5,0 6,0c1,0 3,-1 4,-1c4,0 6,0 7,0c1,0 3,-1 5,-1c1,0 2,0 4,0c1,0 4,0 5,0c2,0 3,0 5,0c1,0 2,0 4,0c1,0 2,0 3,0c1,0 2,0 3,0c1,0 2.29289,0.70711 3,0c0.70711,-0.70711 0.47427,-1.14935 1,-2c1.17557,-1.90211 2.69344,-1.4588 4,-2c0.92387,-0.38269 1.4588,-0.69344 2,-2c0.38269,-0.92387 0.61731,-1.07613 1,-2c0.5412,-1.30656 2.29289,-0.29289 3,-1c0.70711,-0.70711 0.61731,-1.07613 1,-2c0.5412,-1.30656 1.29289,-1.29289 2,-2c0.70711,-0.70711 0.61731,-1.07613 1,-2c0.5412,-1.30656 1,-2 1,-3c0,-1 1,-3 1,-4l1,-1l1,-1l1,0" id="svg_34" stroke-linecap="null" stroke-linejoin="null" stroke-dasharray="null" stroke-width="5" stroke="#7f7f7f" fill="#7f7f00"/>
+        <path d="m174,127c0,1 1,2 1,4c0,1 2,4 2,5c0,1 0,4 1,5c1,1 1.2565,1.797 2,3c1.66251,2.68999 1.95517,4.54915 3,8c0.28979,0.95709 0.82443,2.09789 2,4c1.05145,1.70131 0.95517,2.54915 2,6c0.57956,1.91418 2.1731,4.85274 3,6c1.30743,1.814 1.9176,2.38687 3,5c0.38269,0.92387 0.09787,2.82443 2,4c0.85065,0.52573 1.61731,2.07613 2,3c1.0824,2.61313 2.69257,3.186 4,5c0.8269,1.14726 0.41885,2.41885 2,4c1.58115,1.58115 2.4588,2.69344 3,4c0.38269,0.92387 1.61731,3.07613 2,4c1.0824,2.61313 2.4588,2.69344 3,4c0.38269,0.92387 0.4588,1.69344 1,3c0.76538,1.84776 1.4588,2.69344 2,4c0.38269,0.92387 1.4588,1.69344 2,3c0.38269,0.92387 0.23462,2.15224 1,4c0.5412,1.30656 2,2 2,3c0,1 1,2 1,3c0,1 0.29291,2.29289 1,3c0.70709,0.70711 0.29291,1.29289 1,2c0.70709,0.70711 0.29291,1.29289 1,2c0.70709,0.70711 0.29291,1.29289 1,2c0.70709,0.70711 2,1 3,1l0,1" id="svg_35" stroke-linecap="null" stroke-linejoin="null" stroke-dasharray="null" stroke-width="5" stroke="#7f7f7f" fill="#7f7f00"/>
+      </g>
+      <!-- Created with SVG-edit - http://svg-edit.googlecode.com/ -->
+      <g class="building" style="transform:translate(700px,50px);">
+        <title> building</title>
+        <rect id="svg_41" height="312" width="226" y="67" x="174" stroke-linecap="null" stroke-linejoin="null" stroke-dasharray="null" stroke-width="5" stroke="#191919" fill="#cccccc"/>
+        <path d="m258,148c1,0 2,-2 3,-2c1,0 2.61731,-1.07613 3,-2c0.5412,-1.30656 1.61731,-1.07613 2,-2c0.5412,-1.30656 1.38687,-2.9176 4,-4c0.92389,-0.38269 2.14935,-1.47427 3,-2c1.9021,-1.17557 2.47427,-2.14935 3,-3c1.17557,-1.90211 3.4588,-1.69344 4,-3c0.38269,-0.92387 1.47427,-2.14935 2,-3c1.17557,-1.90211 3.0979,-2.82443 5,-4c0.85065,-0.52573 2,-1 3,-2c1,-1 1,-2 2,-3c2,-2 2.69345,-3.4588 4,-4c0.92389,-0.38268 1,-1 2,-2c1,-1 2.69345,-2.4588 4,-3c0.92389,-0.38268 1,-1 2,-2c1,-1 2,-1 3,-3c1,-2 2.29291,-1.29289 3,-2c0.70709,-0.70711 1,-1 2,-1c1,0 1.29291,-0.29289 2,-1c0.70709,-0.70711 1,-1 2,-1c1,0 1,1 1,2c0,2 0,3 0,4c0,1 0,2 0,4c0,1 0,2 0,3c0,2 0,4 0,5c0,1 0,2 0,3c0,1 0.22977,2.02675 0,3c-0.51373,2.17625 -1,3 -1,4c0,1 -1,1 -1,2c0,1 -1,2 -1,3c0,1 0,2 -1,3c-1,1 -1,2 -1,3c0,1 0,2 0,3c0,1 -1,1 -1,3c0,1 0.38269,2.07613 0,3c-0.5412,1.30656 -1.4588,1.69344 -2,3c-0.38269,0.92387 -0.4588,1.69344 -1,3c-0.38269,0.92387 0,2 0,3c0,1 -0.29291,2.29289 -1,3c-0.70709,0.70711 -1,2 -1,3c0,1 -1,2 -1,3c0,2 -1,4 -1,5c0,1 0,2 0,3c0,1 -0.4588,1.69344 -1,3c-0.38269,0.92387 0,2 0,3c0,1 -2,2 -1,2c1,0 0.66251,-2.31001 -1,-5c-0.7435,-1.203 -2.29291,-2.29289 -3,-3c-0.70709,-0.70711 -1.4588,-2.69344 -2,-4c-0.76538,-1.84776 -1.1731,-2.85274 -2,-4c-1.30746,-1.814 -1.4588,-2.69344 -2,-4c-0.76538,-1.84776 -2.48627,-2.82375 -3,-5c-0.68927,-2.91975 -0.77023,-5.02675 -1,-6c-0.51373,-2.17625 -0.58578,-3.58578 -2,-5c-0.70709,-0.70711 -2.4588,-1.69344 -3,-3c-0.76538,-1.84776 0,-3 -1,-4c-1,-1 -1,-4 -2,-5c-1,-1 -0.61731,-3.07613 -1,-4c-0.5412,-1.30656 -3,-3 -3,-4c0,-1 -0.29291,-2.29289 -1,-3c-0.70709,-0.70711 -0.58578,-1.58578 -2,-3c-0.70709,-0.70711 -1.61731,-2.07612 -2,-3c-0.5412,-1.30656 -1,-2 -2,-3c-1,-1 -0.61731,-2.07612 -1,-3c-0.5412,-1.30656 -1,-2 -2,-3c-1,-1 -1.4588,-1.69344 -2,-3c-0.38269,-0.92388 -1.29291,-1.29289 -2,-2c-1.41422,-1.41422 -1,-3 -1,-4c0,-1 -1.29291,-1.70711 -2,-1c-0.70709,0.70711 0.61731,2.07612 1,3c0.5412,1.30656 2.4588,1.69344 3,3c0.38269,0.92388 0.61731,1.07612 1,2c0.5412,1.30656 2.29291,1.29289 3,2c0.70709,0.70711 1.69345,2.4588 3,3c0.92389,0.38268 1.9176,0.38687 3,3c0.38269,0.92388 1.61731,1.07612 2,2c0.5412,1.30656 2,2 3,3c1,1 2.4588,0.69344 3,2c0.38269,0.92388 2,2 4,4c1,1 1.85272,2.1731 3,3c1.814,1.30745 3.07611,1.61731 4,2c1.30655,0.5412 1.69254,1.186 3,3c0.8269,1.14726 2.0979,1.82443 4,3c0.85065,0.52573 2.186,-0.30745 4,1c1.14728,0.8269 1.29291,1.29289 2,2c0.70709,0.70711 3,1 5,2c2,1 3,2 5,3c2,1 2.15225,1.23463 4,2c1.30655,0.5412 1.61731,1.07613 2,2c0.5412,1.30656 3.29291,1.29289 4,2c0.70709,0.70711 1.07611,0.61731 2,1c1.30655,0.5412 2.29291,0.29289 3,1c0.70709,0.70711 0.29291,1.29289 1,2c0.70709,0.70711 2,1 3,1c1,0 2.29291,-0.70711 3,0c0.70709,0.70711 -1,1 -2,1c-1,0 -2,0 -3,0c-1,0 -3,0 -4,0c-1,0 -3,0 -4,0c-1,0 -3,0 -4,0c-1,0 -2,0 -4,0c-2,0 -3,0 -4,0c-1,0 -3,0 -4,0c-1,0 -2,0 -3,0c-1,0 -2,0 -3,0c-1,0 -2,0 -3,0c-2,0 -3,0 -4,0c-2,0 -3,0 -4,0c-1,0 -2,0 -3,0c-2,0 -3.07611,0.38269 -4,0c-1.30655,-0.5412 -2,-1 -3,-1c-1,0 -2,0 -3,0c-1,0 -2.07611,0.38269 -3,0c-1.30655,-0.5412 -2,-1 -3,-1c-1,0 -1,-1 -2,-1c-1,0 -2,0 -3,0l-1,-1l-1,0" id="svg_42" stroke-linecap="null" stroke-linejoin="null" stroke-dasharray="null" stroke-width="5" stroke="#bf0000" fill="#bf005f"/>
+        <line id="svg_46" y2="207" x2="201" y1="207" x1="194" stroke-linecap="null" stroke-linejoin="null" stroke-dasharray="null" stroke-width="5" stroke="#666666" fill="none"/>
+        <line id="svg_47" y2="208" x2="267" y1="208" x1="242" stroke-linecap="null" stroke-linejoin="null" stroke-dasharray="null" stroke-width="5" stroke="#666666" fill="none"/>
+        <line id="svg_48" y2="207" x2="369" y1="207" x1="319" stroke-linecap="null" stroke-linejoin="null" stroke-dasharray="null" stroke-width="5" stroke="#666666" fill="none"/>
+        <line id="svg_49" y2="257" x2="215" y1="257" x1="201" stroke-linecap="null" stroke-linejoin="null" stroke-dasharray="null" stroke-width="5" stroke="#666666" fill="none"/>
+        <line id="svg_50" y2="257" x2="267" y1="257" x1="251" stroke-linecap="null" stroke-linejoin="null" stroke-dasharray="null" stroke-width="5" stroke="#666666" fill="none"/>
+        <line id="svg_51" y2="255" x2="360" y1="256" x1="323" stroke-linecap="null" stroke-linejoin="null" stroke-dasharray="null" stroke-width="5" stroke="#666666" fill="none"/>
+        <line id="svg_52" y2="296" x2="207" y1="296" x1="202" stroke-linecap="null" stroke-linejoin="null" stroke-dasharray="null" stroke-width="5" stroke="#666666" fill="none"/>
+        <line id="svg_53" y2="293" x2="301" y1="293" x1="253" stroke-linecap="null" stroke-linejoin="null" stroke-dasharray="null" stroke-width="5" stroke="#666666" fill="none"/>
+        <line id="svg_54" y2="293" x2="356" y1="293" x1="340" stroke-linecap="null" stroke-linejoin="null" stroke-dasharray="null" stroke-width="5" stroke="#666666" fill="none"/>
+        <line id="svg_55" y2="341" x2="241" y1="342" x1="210" stroke-linecap="null" stroke-linejoin="null" stroke-dasharray="null" stroke-width="5" stroke="#666666" fill="none"/>
+        <line id="svg_56" y2="337" x2="304" y1="339" x1="276" stroke-linecap="null" stroke-linejoin="null" stroke-dasharray="null" stroke-width="5" stroke="#666666" fill="none"/>
+        <line id="svg_57" y2="336" x2="376" y1="337" x1="355" stroke-linecap="null" stroke-linejoin="null" stroke-dasharray="null" stroke-width="5" stroke="#666666" fill="none"/>
+      </g>
+
+      <!-- Created with SVG-edit - http://svg-edit.googlecode.com/ -->
+      <g class="boy" style="transform:translate(900px,250px);">
+        <title>boy</title>
+        <ellipse ry="37" rx="36" id="svg_35" cy="97" cx="239" stroke-linecap="null" stroke-linejoin="null" stroke-dasharray="null" stroke-width="5" stroke="#7f7f7f" fill="#7f7f00"/>
+        <path d="m224,80c1,0 2,0 3,0c1,0 2.58578,-1.41422 4,0c0.70711,0.70711 1,1 2,1c1,0 2,0 3,0c1,0 2.29289,0.70711 3,0c0.70711,-0.70711 -1,-1 -2,-1c-1,0 -1,-1 -2,-1c-1,0 -2,0 -2,-1l-1,0" id="svg_36" stroke-linecap="null" stroke-linejoin="null" stroke-dasharray="null" stroke-width="5" stroke="#000000" fill="none"/>
+        <path d="m235,115c-1,0 -2.29289,0.29289 -3,1c-0.70711,0.70711 -1,1 -2,1c-1,0 -2.29289,-0.70711 -3,0c-0.70711,0.70711 -1,1 -2,1c-1,0 -2,0 -3,0c-1,0 -2,0 -3,0c-1,0 -5,0 -6,0l-1,0l-1,0" id="svg_37" stroke-linecap="null" stroke-linejoin="null" stroke-dasharray="null" stroke-width="5" stroke="#bf0000" fill="none"/>
+        <path d="m236,138c0,0 0,1 0,2c0,1 0,2 0,3c0,1 0,3 0,4c0,1 0,2 0,3c0,1 -0.90146,2.00487 -1,3c-0.50244,5.0742 -0.69344,6.4588 -2,7c-0.92387,0.38269 -1.29289,0.29289 -2,1c-0.70711,0.70711 -2,0 -3,0c-1,0 -2.69344,0.4588 -4,1c-0.92387,0.38269 -3,0 -4,0c-1,0 -2,0 -3,0c-1,0 -2,0 -3,0c-1,0 -2,0 -3,0c-1,0 -2,0 -3,0c-1,0 -2,0 -3,0c-1,0 -2,0 -3,0c-1,0 -2,0 -3,0c-1,0 -2,0 -3,0c-1,0 -1.29289,0.29289 -2,1c-0.70711,0.70711 -1,1 -1,2c0,2 0.38269,3.07613 0,4c-0.5412,1.30656 -1,2 -1,3c0,2 0,3 0,5c0,1 0,2 0,3c0,1 0,3 0,4c0,1 0,2 0,4c0,2 0,3 0,5c0,1 0,2 0,4c0,2 0,3 0,4c0,2 0,3 0,4c0,1 0,2 0,3c0,1 0,2 1,2c1,0 3,0 4,0c2,0 5,0 7,0c5,0 12,0 15,0c5,0 12,0 14,0c2,0 8,0 10,0c2,0 3,0 5,0c3,0 4,0 6,0c1,0 3,0 4,0c1,0 3,0 4,0c1,0 3,0 4,0c2,0 3,0 5,0c2,0 4,0 6,0c1,0 3,0 4,0c1,0 2,0 3,0c2,0 3,0 4,0c1,0 1.69345,-0.4588 3,-1c0.92389,-0.38269 2,0 3,0l1,0" id="svg_38" stroke-linecap="null" stroke-linejoin="null" stroke-dasharray="null" stroke-width="5" stroke="#666666" fill="#5f00bf"/>
+        <path d="m258,135c0,1 0,2 0,3c0,2 0,4 0,5c0,1 0,2 0,3c0,1 0,2 0,3c0,1 0,2 0,3c0,1 0,2 0,3c0,1 -0.38269,2.07613 0,3c0.5412,1.30656 1,2 1,3c0,1 1,1 2,1c1,0 2,0 3,0c1,0 2,0 3,0c1,0 2,0 3,0c2,0 3,0 4,0c1,0 4,0 5,0c2,0 3,0 4,0c2,0 3,0 4,0c1,0 1.29291,-1.70711 2,-1c0.70709,0.70711 0,2 0,4c0,2 0,3 0,4c0,1 0,2 0,3c0,2 0,3 0,4c0,1 0,2 0,3c0,1 0,2 0,3c0,1 0.4588,1.69344 1,3c0.76538,1.84776 1,2 1,3c0,1 1,3 1,4c0,1 0,2 0,3c0,1 0,2 0,3c0,1 0,2 0,3c0,1 0,2 0,3l0,1l0,1l0,1" id="svg_39" stroke-linecap="null" stroke-linejoin="null" stroke-dasharray="null" stroke-width="5" stroke="#666666" fill="#5f00bf"/>
+        <path d="m232,213c0,1 0.22975,2.02675 0,3c-0.51375,2.17625 -1,4 -1,5c0,1 -0.4588,2.69344 -1,4c-0.38269,0.92387 -1,2 -1,4c0,2 0,3 0,4c0,1 0,2 0,3c0,1 0,2 0,3c0,1 0,3 0,4c0,1 0,2 0,3c0,1 0,2 0,3c0,1 0,2 0,3c0,1 0,2 0,3c0,1 1,2 1,3c0,1 0,2 0,3c0,2 0,3 0,4c0,1 0,2 0,3c0,1 -0.70711,2.29291 0,3c0.70711,0.70709 2,0 3,1c1,1 2,1 3,1c1,0 1,-1 2,-1c1,0 2,0 2,-1c0,-1 1,-1 1,-3c0,-2 0,-3 0,-5c0,-1 0,-2 0,-4c0,-1 -0.38269,-3.07613 0,-4c0.5412,-1.30656 1,-2 1,-4c0,-1 0,-2 0,-3c0,-1 0,-2 0,-3c0,-1 0,-2 0,-3c0,-1 0,-2 0,-3c0,-1 0,-2 0,-3c0,-1 0,-2 0,-3c0,-1 0,-2 0,-3c0,-1 0,-2 0,-3c0,-1 0,-2 0,-3c0,-1 0,-2 0,-3c0,-1 0,-2 0,-3c0,-1 0,-2 0,-3c0,-1 0,-2 0,-3l0,-1" id="svg_40" stroke-linecap="null" stroke-linejoin="null" stroke-dasharray="null" stroke-width="5" stroke="#666666" fill="#000000"/>
+        <path d="m244,241c0,0 -0.70711,0.29289 0,1c0.70711,0.70711 1,1 1,2c0,1 1,1 1,2c0,1 -0.70711,2.29289 0,3c0.70711,0.70711 0.29289,1.29289 1,2c0.70711,0.70711 1,1 1,2c0,1 1,1 1,2c0,1 0.29289,1.29291 1,2c0.70711,0.70709 1,1 1,2c0,1 1,1 1,2c0,1 0.29289,2.29291 1,3c0.70711,0.70709 1,1 0,1c-1,0 -2,0 -3,0c-1,0 -2,0 -3,0c-1,0 -2,0 -3,0c-1,0 -1,-1 -1,-2l-1,0l0,-1l-1,0" id="svg_41" stroke-linecap="null" stroke-linejoin="null" stroke-dasharray="null" stroke-width="5" stroke="#666666" fill="#000000"/>
+      </g>
+
+      <!-- Created with SVG-edit - http://svg-edit.googlecode.com/ -->
+      <g class="sun" style="transform:translate(950px,0px);">
+        <title>sun</title>
+        <ellipse ry="110" rx="124" id="svg_41" cy="134" cx="193" stroke-linecap="null" stroke-linejoin="null" stroke-dasharray="null" stroke-width="5" stroke="#bf0000" fill="#ffff00"/>
+      </g>
+
+    </svg>
+
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        var svg = new Walkway('#svg');
+        svg.draw(function() {
+          setTimeout("$('#house').css('display','none');" ,22000);
+        });
+      });
+
+    </script>
+    <div class="content-container">
+      <div class="content">
+        <header>
+          <h1>A silent world</h1>
+          <span>Image Wall with hzq and wsy</span>
+        </header>
+        <div class="iw_wrapper">
+          <ul class="iw_thumbs" id="iw_thumbs">
+            <li><img src="images/thumbs/1.jpg" data-img="images/full/1.jpg" alt="Thumb1"/><div><h2>Serenity</h2><p>Far far away, behind the word mountains there live the happy couple.<br><span style="color:green">click here to get a surprise</span></p></div></li>
+            <li><img src="images/thumbs/2.jpg" data-img="images/full/2.jpg" alt="Thumb2"/><div><h2>Silence</h2><p>Far far away, behind the word mountains there live the happy couple.<br><span style="color:green">click here to get a surprise</span></p></div></li>
+            <li><img src="images/thumbs/3.jpg" data-img="images/full/3.jpg" alt="Thumb3"/><div><h2>Abstraction</h2><p>Far far away, behind the word mountains there live the happy couple.<br><span style="color:green">click here to get a surprise</span></p></div></li>
+            <li><img src="images/thumbs/8.jpg" data-img="images/full/8.jpg" alt="Thumb8"/><div><h2>Happiness</h2><p>Far far away, behind the word mountains there live the happy couple.<br><span style="color:green">click here to get a surprise</span></p></div></li>
+            <li><img src="images/thumbs/9.jpg" data-img="images/full/9.jpg" alt="Thumb9"/><div><h2>Greatness</h2><p>Far far away, behind the word mountains there live the happy couple.<br><span style="color:green">click here to get a surprise</span></p></div></li>
+            <li><img src="images/thumbs/10.jpg" data-img="images/full/10.jpg" alt="Thumb10"/><div><h2>Abstraction</h2><p>Far far away, behind the word mountains there live the happy couple.<br><span style="color:green">click here to get a surprise</span></p></div></li>
+            <li><img src="images/thumbs/6.jpg" data-img="images/full/6.jpg" alt="Thumb6"/><div><h2>Virtue</h2><p>Far far away, behind the word mountains there live the happy couple.<br><span style="color:green">click here to get a surprise</span></br><span style="color:green">click here to get a surprise</span></p></div></li>
+            <li><img src="images/thumbs/7.jpg" data-img="images/full/7.jpg" alt="Thumb7"/><div><h2>Beauty</h2><p>Far far away, behind the word mountains there live the happy couple.<br><span style="color:green">click here to get a surprise</span></p></div></li>
+            <li><img src="images/thumbs/8.jpg" data-img="images/full/8.jpg" alt="Thumb8"/><div><h2>Happiness</h2><p>Far far away, behind the word mountains there live the happy couple.<br><span style="color:green">click here to get a surprise</span></p></div></li>
+            <li><img src="images/thumbs/12.jpg" data-img="images/full/12.jpg" alt="Thumb12"/><div><h2>Greatness</h2><p>Far far away, behind the word mountains there live the happy couple.<br><span style="color:green">click here to get a surprise</span></p></div></li>
+            <li><img src="images/thumbs/4.jpg" data-img="images/full/4.jpg" alt="Thumb4"/><div><h2>Attraction</h2><p>Far far away, behind the word mountains there live the happy couple.<br><span style="color:green">click here to get a surprise</span></p></div></li>
+            <li><img src="images/thumbs/5.jpg" data-img="images/full/5.jpg" alt="Thumb5"/><div><h2>Growth</h2><p>Far far away, behind the word mountains there live the happy couple.<br><span style="color:green">click here to get a surprise</span></p></div></li>
+            <li><img src="images/thumbs/6.jpg" data-img="images/full/6.jpg" alt="Thumb6"/><div><h2>Virtue</h2><p>Far far away, behind the word mountains there live the happy couple.<br><span style="color:green">click here to get a surprise</span></p></div></li>
+            <li><img src="images/thumbs/7.jpg" data-img="images/full/7.jpg" alt="Thumb7"/><div><h2>Beauty</h2><p>Far far away, behind the word mountains there live the happy couple.<br><span style="color:green">click here to get a surprise</span></p></div></li>
+            <li><img src="images/thumbs/10.jpg" data-img="images/full/10.jpg" alt="Thumb10"/><div><h2>Abstraction</h2><p>Far far away, behind the word mountains there live the happy couple.<br><span style="color:green">click here to get a surprise</span></p></div></li>
+            <li><img src="images/thumbs/11.jpg" data-img="images/full/11.jpg" alt="Thumb11"/><div><h2>Attraction</h2><p>Far far away, behind the word mountains there live the happy couple.<br><span style="color:green">click here to get a surprise</span></p></div></li>
+            <li><img src="images/thumbs/3.jpg" data-img="images/full/3.jpg" alt="Thumb3"/><div><h2>Virtue</h2><p>Far far away, behind the word mountains there live the happy couple.<br><span style="color:green">click here to get a surprise</span></p></div></li>
+            <li><img src="images/thumbs/13.jpg" data-img="images/full/13.jpg" alt="Thumb13"/><div><h2>Happiness</h2><p>Far far away, behind the word mountains there live the happy couple.<br><span style="color:green">click here to get a surprise</span></p></div></li>
+            <li><img src="images/thumbs/14.jpg" data-img="images/full/14.jpg" alt="Thumb14"/><div><h2>Serenity</h2><p>Far far away, behind the word mountains there live the happy couple.<br><span style="color:green">click here to get a surprise</span></p></div></li>
+            <li><img src="images/thumbs/2.jpg" data-img="images/full/2.jpg" alt="Thumb1"/><div><h2>Virtue</h2><p>Far far away, behind the word mountains there live the happy couple.<br><span style="color:green">click here to get a surprise</span></p></div></li>
+            <li><img src="images/thumbs/4.jpg" data-img="images/full/4.jpg" alt="Thumb2"/><div><h2>Serenity</h2><p>Far far away, behind the word mountains there live the happy couple.<br><span style="color:green">click here to get a surprise</span></p></div></li>
+            <li><img src="images/thumbs/11.jpg" data-img="images/full/11.jpg" alt="Thumb11"/><div><h2>Attraction</h2><p>Far far away, behind the word mountains there live the happy couple.<br><span style="color:green">click here to get a surprise</span></p></div></li>
+            <li><img src="images/thumbs/12.jpg" data-img="images/full/12.jpg" alt="Thumb12"/><div><h2>Virtue</h2><p>Far far away, behind the word mountains there live the happy couple.<br><span style="color:green">click here to get a surprise</span></p></div></li>
+            <li><img src="images/thumbs/13.jpg" data-img="images/full/13.jpg" alt="Thumb13"/><div><h2>Happiness</h2><p>Far far away, behind the word mountains there live the happy couple.<br><span style="color:green">click here to get a surprise</span></p></div></li>
+            <li><img src="images/thumbs/14.jpg" data-img="images/full/14.jpg" alt="Thumb14"/><div><h2>Serenity</h2><p>Far far away, behind the word mountains there live the happy couple.<br><span style="color:green">click here to get a surprise</span></p></div></li>
+            <li><img src="images/thumbs/2.jpg" data-img="images/full/2.jpg" alt="Thumb1"/><div><h2>Virtue</h2><p>Far far away, behind the word mountains there live the happy couple.<br><span style="color:green">click here to get a surprise</span></p></div></li>
+            <li><img src="images/thumbs/4.jpg" data-img="images/full/4.jpg" alt="Thumb2"/><div><h2>Serenity</h2><p>Far far away, behind the word mountains there live the happy couple.<br><span style="color:green">click here to get a surprise</span></p></div></li>
+            <li><img src="images/thumbs/6.jpg" data-img="images/full/6.jpg" alt="Thumb3"/><div><h2>Attraction</h2><p>Far far away, behind the word mountains there live the happy couple.<br><span style="color:green">click here to get a surprise</span></p></div></li>
+            <li><img src="images/thumbs/8.jpg" data-img="images/full/8.jpg" alt="Thumb4"/><div><h2>Serenity</h2><p>Far far away, behind the word mountains there live the happy couple.<br><span style="color:green">click here to get a surprise</span></p></div></li>
+            <li><img src="images/thumbs/12.jpg" data-img="images/full/12.jpg" alt="Thumb1"/><div><h2>Serenity</h2><p>Far far away, behind the word mountains there live the happy couple.<br><span style="color:green">click here to get a surprise</span></p></div></li>
+            <li><img src="images/thumbs/2.jpg" data-img="images/full/2.jpg" alt="Thumb2"/><div><h2>Silence</h2><p>Far far away, behind the word mountains there live the happy couple.<br><span style="color:green">click here to get a surprise</span></p></div></li>
+            <li><img src="images/thumbs/3.jpg" data-img="images/full/3.jpg" alt="Thumb3"/><div><h2>Abstraction</h2><p>Far far away, behind the word mountains there live the happy couple.<br><span style="color:green">click here to get a surprise</span></p></div></li>
+            <li><img src="images/thumbs/4.jpg" data-img="images/full/4.jpg" alt="Thumb4"/><div><h2>Attraction</h2><p>Far far away, behind the word mountains there live the happy couple.<br><span style="color:green">click here to get a surprise</span></p></div></li>
+            <li><img src="images/thumbs/5.jpg" data-img="images/full/5.jpg" alt="Thumb5"/><div><h2>Growth</h2><p>Far far away, behind the word mountains there live the happy couple.<br><span style="color:green">click here to get a surprise</span></p></div></li>
+            <li><img src="images/thumbs/6.jpg" data-img="images/full/6.jpg" alt="Thumb6"/><div><h2>Virtue</h2><p>Far far away, behind the word mountains there live the happy couple.<br><span style="color:green">click here to get a surprise</span></p></div></li>
+            <li><img src="images/thumbs/7.jpg" data-img="images/full/7.jpg" alt="Thumb7"/><div><h2>Beauty</h2><p>Far far away, behind the word mountains there live the happy couple.<br><span style="color:green">click here to get a surprise</span></p></div></li>
+            <li><img src="images/thumbs/8.jpg" data-img="images/full/8.jpg" alt="Thumb8"/><div><h2>Happiness</h2><p>Far far away, behind the word mountains there live the happy couple.<br><span style="color:green">click here to get a surprise</span></p></div></li>
+            <li><img src="images/thumbs/9.jpg" data-img="images/full/9.jpg" alt="Thumb9"/><div><h2>Greatness</h2><p>Far far away, behind the word mountains there live the happy couple.<br><span style="color:green">click here to get a surprise</span></p></div></li>
+            <li><img src="images/thumbs/10.jpg" data-img="images/full/10.jpg" alt="Thumb10"/><div><h2>Abstraction</h2><p>Far far away, behind the word mountains there live the happy couple.<br><span style="color:green">click here to get a surprise</span></p></div></li>
+            <li><img src="images/thumbs/11.jpg" data-img="images/full/11.jpg" alt="Thumb11"/><div><h2>Attraction</h2><p>Far far away, behind the word mountains there live the happy couple.<br><span style="color:green">click here to get a surprise</span></p></div></li>
+            <li><img src="images/thumbs/1.jpg" data-img="images/full/1.jpg" alt="Thumb12"/><div><h2>Virtue</h2><p>Far far away, behind the word mountains there live the happy couple.<br><span style="color:green">click here to get a surprise</span></p></div></li>
+            <li><img src="images/thumbs/13.jpg" data-img="images/full/13.jpg" alt="Thumb13"/><div><h2>Happiness</h2><p>Far far away, behind the word mountains there live the happy couple.<br><span style="color:green">click here to get a surprise</span></p></div></li>
+            <li><img src="images/thumbs/14.jpg" data-img="images/full/14.jpg" alt="Thumb14"/><div><h2>Serenity</h2><p>Far far away, behind the word mountains there live the happy couple.<br><span style="color:green">click here to get a surprise</span></p></div></li>
+            <li><img src="images/thumbs/2.jpg" data-img="images/full/2.jpg" alt="Thumb1"/><div><h2>Virtue</h2><p>Far far away, behind the word mountains there live the happy couple.<br><span style="color:green">click here to get a surprise</span></p></div></li>
+            <li><img src="images/thumbs/4.jpg" data-img="images/full/4.jpg" alt="Thumb2"/><div><h2>Serenity</h2><p>Far far away, behind the word mountains there live the happy couple.<br><span style="color:green">click here to get a surprise</span></p></div></li>
+            <li><img src="images/thumbs/6.jpg" data-img="images/full/6.jpg" alt="Thumb3"/><div><h2>Attraction</h2><p>Far far away, behind the word mountains there live the happy couple.<br><span style="color:green">click here to get a surprise</span></p></div></li>
+          </ul>
+        </div>
+        <div id="iw_ribbon" class="iw_ribbon">
+          <span class="iw_close"></span>
+          <span class="iw_zoom">the girl and the boy</span>
+        </div>
+      </div>
+      <div class="footer">
+        <span class="left">thank you for viewing</span>
+      </div>
+    </div>
+    <script type="text/javascript" src="js/jquery.masonry.min.js"></script>
+    <script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
+    <script type="text/javascript">
+      function pictureWall(){
+        var $iw_thumbs			= $('#iw_thumbs'),
+                $iw_ribbon			= $('#iw_ribbon'),
+                $iw_ribbon_close	= $iw_ribbon.children('span.iw_close'),
+                $iw_ribbon_zoom		= $iw_ribbon.children('span.iw_zoom');
+
+        ImageWall	= (function() {
+          // window width and height
+          var w_dim,
+          // index of current image
+                  current				= -1,
+                  isRibbonShown		= false,
+                  isFullMode			= false,
+          // ribbon / images animation settings
+                  ribbonAnim			= {speed : 500, easing : 'easeOutExpo'},
+                  imgAnim				= {speed : 400, easing : 'jswing'},
+          // init function : call masonry, calculate window dimentions, initialize some events
+                  init				= function() {
+                    $iw_thumbs.imagesLoaded(function(){
+                      $iw_thumbs.masonry({
+                        isAnimated	: true
+                      });
+                    });
+                    getWindowsDim();
+                    initEventsHandler();
+                  },
+          // calculate window dimentions
+                  getWindowsDim		= function() {
+                    w_dim = {
+                      width	: $(window).width(),
+                      height	: $(window).height()
+                    };
+                  },
+          // initialize some events
+                  initEventsHandler	= function() {
+
+                    // click on a image
+                    $iw_thumbs.delegate('li', 'click', function() {
+                      if($iw_ribbon.is(':animated')) return false;
+
+                      var $el = $(this);
+
+                      if($el.data('ribbon')) {
+                        showFullImage($el);
+                      }
+                      else if(!isRibbonShown) {
+                        isRibbonShown = true;
+
+                        $el.data('ribbon',true);
+
+                        // set the current
+                        current = $el.index();
+
+                        showRibbon($el);
+                      }
+                    });
+
+                    // click ribbon close
+                    $iw_ribbon_close.bind('click', closeRibbon);
+
+                    // on window resize we need to recalculate the window dimentions
+                    $(window).bind('resize', function() {
+                      getWindowsDim();
+                      if($iw_ribbon.is(':animated'))
+                        return false;
+                      closeRibbon();
+                    })
+                            .bind('scroll', function() {
+                              if($iw_ribbon.is(':animated'))
+                                return false;
+                              closeRibbon();
+                            });
+
+                  },
+                  showRibbon			= function($el) {
+                    var	$img	= $el.children('img'),
+                            $descrp	= $img.next();
+
+                    // fadeOut all the other images
+                    $iw_thumbs.children('li').not($el).animate({opacity : 0.2}, imgAnim.speed);
+
+                    // increase the image z-index, and set the height to 100px (default height)
+                    $img.css('z-index', 100)
+                            .data('originalHeight',$img.height())
+                            .stop()
+                            .animate({
+                              height 		: '100px'
+                            }, imgAnim.speed, imgAnim.easing);
+
+                    // the ribbon will animate from the left or right
+                    // depending on the position of the image
+                    var ribbonCssParam 		= {
+                              top	: $el.offset().top - $(window).scrollTop() - 6 + 'px'
+                            },
+                            descriptionCssParam,
+                            dir;
+
+                    if( $el.offset().left < (w_dim.width / 2) ) {
+                      dir = 'left';
+                      ribbonCssParam.left 	= 0;
+                      ribbonCssParam.right 	= 'auto';
+                    }
+                    else {
+                      dir = 'right';
+                      ribbonCssParam.right 	= 0;
+                      ribbonCssParam.left 	= 'auto';
+                    }
+
+                    $iw_ribbon.css(ribbonCssParam)
+                            .show()
+                            .stop()
+                            .animate({width : '100%'}, ribbonAnim.speed, ribbonAnim.easing, function() {
+                              switch(dir) {
+                                case 'left' :
+                                  descriptionCssParam		= {
+                                    'left' 			: $img.outerWidth(true) + 'px',
+                                    'text-align' 	: 'left'
+                                  };
+                                  break;
+                                case 'right' :
+                                  descriptionCssParam		= {
+                                    'left' 			: '-200px',
+                                    'text-align' 	: 'right'
+                                  };
+                                  break;
+                              };
+                              $descrp.css(descriptionCssParam).fadeIn();
+                              // show close button and zoom
+                              $iw_ribbon_close.show();
+                              $iw_ribbon_zoom.show();
+                            });
+
+                  },
+          // close the ribbon
+          // when in full mode slides in the middle of the page
+          // when not slides left
+                  closeRibbon			= function() {
+                    isRibbonShown 	= false
+
+                    $iw_ribbon_close.hide();
+                    $iw_ribbon_zoom.hide();
+
+                    if(!isFullMode) {
+
+                      // current wall image
+                      var $el	 		= $iw_thumbs.children('li').eq(current);
+
+                      resetWall($el);
+
+                      // slide out ribbon
+                      $iw_ribbon.stop()
+                              .animate({width : '0%'}, ribbonAnim.speed, ribbonAnim.easing);
+
+                    }
+                    else {
+                      $iw_ribbon.stop().animate({
+                        opacity		: 0.8,
+                        height 		: '0px',
+                        marginTop	: w_dim.height/2 + 'px' // half of window height
+                      }, ribbonAnim.speed, function() {
+                        $iw_ribbon.css({
+                          'width'		: '0%',
+                          'height'	: '126px',
+                          'margin-top': '0px'
+                        }).children('img').remove();
+                      });
+
+                      isFullMode	= false;
+                    }
+                  },
+                  resetWall			= function($el) {
+                    var $img		= $el.children('img'),
+                            $descrp		= $img.next();
+
+                    $el.data('ribbon',false);
+
+                    // reset the image z-index and height
+                    $img.css('z-index',1).stop().animate({
+                      height 		: $img.data('originalHeight')
+                    }, imgAnim.speed,imgAnim.easing);
+
+                    // fadeOut the description
+                    $descrp.fadeOut();
+
+                    // fadeIn all the other images
+                    $iw_thumbs.children('li').not($el).animate({opacity : 1}, imgAnim.speed);
+                  },
+                  showFullImage		= function($el) {
+                    isFullMode	= true;
+
+                    $iw_ribbon_close.hide();
+
+                    var	$img	= $el.children('img'),
+                            large	= $img.data('img'),
+
+                    // add a loading image on top of the image
+                            $loading = $('<span class="iw_loading"></span>');
+
+                    $el.append($loading);
+
+                    // preload large image
+                    $('<img/>').load(function() {
+                      var $largeImage	= $(this);
+
+                      $loading.remove();
+
+                      $iw_ribbon_zoom.hide();
+
+                      resizeImage($largeImage);
+
+                      // reset the current image in the wall
+                      resetWall($el);
+
+                      // animate ribbon in and out
+                      $iw_ribbon.stop().animate({
+                        opacity		: 1,
+                        height 		: '0px',
+                        marginTop	: '63px' // half of ribbons height
+                      }, ribbonAnim.speed, function() {
+                        // add the large image to the DOM
+                        $iw_ribbon.prepend($largeImage);
+
+                        $iw_ribbon_close.show();
+
+                        $iw_ribbon.animate({
+                          height 		: '100%',
+                          marginTop	: '0px',
+                          top			: '0px'
+                        }, ribbonAnim.speed);
+                      });
+                    }).attr('src',large);
+
+                  },
+                  resizeImage			= function($image) {
+                    var widthMargin		= 100,
+                            heightMargin 	= 100,
+
+                            windowH      	= w_dim.height - heightMargin,
+                            windowW      	= w_dim.width - widthMargin,
+                            theImage     	= new Image();
+
+                    theImage.src     	= $image.attr("src");
+
+                    var imgwidth     	= theImage.width,
+                            imgheight    	= theImage.height;
+
+                    if((imgwidth > windowW) || (imgheight > windowH)) {
+                      if(imgwidth > imgheight) {
+                        var newwidth 	= windowW,
+                                ratio 		= imgwidth / windowW,
+                                newheight 	= imgheight / ratio;
+
+                        theImage.height = newheight;
+                        theImage.width	= newwidth;
+
+                        if(newheight > windowH) {
+                          var newnewheight 	= windowH,
+                                  newratio 		= newheight/windowH,
+                                  newnewwidth 	= newwidth/newratio;
+
+                          theImage.width 		= newnewwidth;
+                          theImage.height		= newnewheight;
+                        }
+                      }
+                      else {
+                        var newheight 	= windowH,
+                                ratio 		= imgheight / windowH,
+                                newwidth 	= imgwidth / ratio;
+
+                        theImage.height = newheight;
+                        theImage.width	= newwidth;
+
+                        if(newwidth > windowW) {
+                          var newnewwidth 	= windowW,
+                                  newratio 		= newwidth/windowW,
+                                  newnewheight 	= newheight/newratio;
+
+                          theImage.height 	= newnewheight;
+                          theImage.width		= newnewwidth;
+                        }
+                      }
+                    }
+
+                    $image.css({
+                      'width'			: theImage.width + 'px',
+                      'height'		: theImage.height + 'px',
+                      'margin-left'	: -theImage.width / 2 + 'px',
+                      'margin-top'	: -theImage.height / 2 + 'px'
+                    });
+                  };
+
+          return {init : init};
+        })();
+
+        ImageWall.init();
+      };
+      window.ready=pictureWall();
+      //setTimeout("$('.content-container').css('visibility','visible');" ,30000);
+
+    </script>
+  </body>
+</html>
