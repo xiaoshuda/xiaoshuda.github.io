@@ -51,7 +51,7 @@ body{
 .nav_div{
 	height: 100px;
 	    padding-left: 20px;
-	    background: url('/imgs/nav_back_01.png');
+	    background: url('../imgs/nav_back_01.png');
 	    background-size: cover;
 	    background-position-x: 1156px;
 }
