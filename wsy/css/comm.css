@@ -26,7 +26,7 @@ body{
 .service-wrapper .service-guide-wrapper {
 width: 1100px;
 height: 603px;
-background: url(/imgs/1_01_3lce.jpg) center no-repeat;
+background: url("../imgs/1_01_3lce.jpg") center no-repeat;
 background-size: contain;
 margin:0 auto;
 
@@ -124,7 +124,7 @@ body{
 	    background: #d50012;
 }
 .nav_back{
-	background: url(/imgs/1_02_trb5.png) no-repeat;
+	background: url(../imgs/1_02_trb5.png) no-repeat;
 
 }
 .out_container{
@@ -135,25 +135,25 @@ body{
 	overflow: hidden;
 }
 .nav_out_container{
-	background: url(/imgs/nav_back_01.png)  no-repeat bottom;
+	background: url(../imgs/nav_back_01.png)  no-repeat bottom;
 	background-size: cover;
 }
 .index_back_01{
 	height: 167px;
-	background: url(/imgs/index_back_01.jpg)  no-repeat;
+	background: url(../imgs/index_back_01.jpg)  no-repeat;
 	background-size: contain;
 }
 .index_back_02{
 	height: 500px;
 	background-position: 0px 40px;
-	background-image: url("/imgs/zy_back.jpg");
+	background-image: url("../imgs/zy_back.jpg");
 	background-repeat: no-repeat;
 	background-color: #080403;
 }
 .index_back_03{
 	height: 200px;
 	position: relative;
-	background:url(/imgs/index_back_03.jpg) no-repeat;
+	background:url(../imgs/index_back_03.jpg) no-repeat;
 }
 .index_back_04{
 	height: 400px;
@@ -177,11 +177,11 @@ body{
 }
 .index_back_05{
 	padding-top: 200px;
-	background:url(/imgs/index_back_05.jpg) no-repeat;
+	background:url(../imgs/index_back_05.jpg) no-repeat;
 }
 .index_back_08{
 	height: 226px;
-	background:url(/imgs/index_back_08.jpg) no-repeat;
+	background:url(../imgs/index_back_08.jpg) no-repeat;
 }
 .index_back_05 .index_05_inner{
 	margin: 0 auto；
@@ -210,7 +210,7 @@ body{
 .index_back_06{
 	padding-top: 230px;
 	height: 419px;
-	background:url(/imgs/index_back_06.jpg) no-repeat;
+	background:url(../imgs/index_back_06.jpg) no-repeat;
 }
 
 .index_back_09{
@@ -259,7 +259,7 @@ body{
 }
 .index_back_04 .btn_left,.index_back_04 .btn_right {
 	float: left;
-	background: url(/imgs/sprite.png) no-repeat;
+	background: url(../imgs/sprite.png) no-repeat;
 	opacity: .3;
 	width: 45px;
 	height: 140px;
@@ -341,13 +341,13 @@ body{
 .about_back_01{
 	height: 192px;
 	position: relative;
-	    background: url(/imgs/nav_01.jpg) no-repeat;
+	    background: url(../imgs/nav_01.jpg) no-repeat;
 	    background-size: contain;
 }
 .about_back_02{
 	height: 192px;
 	position: relative;
-	    background: url(/imgs/nav_02.jpg) no-repeat;
+	    background: url(../imgs/nav_02.jpg) no-repeat;
 	    background-size: contain;
 }
 
