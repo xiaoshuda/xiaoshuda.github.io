@@ -364,7 +364,7 @@ body{
 }
 .about_content .left_div li{
 	list-style: none;
-	background: #d50012;
+	background:#000;
 	height: 80px;
 	widows: 100%;
 	color:#fff;
@@ -377,7 +377,7 @@ body{
 
 }
 .about_content .left_div .active,.nav li:hover {
-	background: #000;
+	background:  #d50012;
 	color:#fff;
 }
 
